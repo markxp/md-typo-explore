@@ -1,0 +1,116 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+
+
+<dom-module id="material-design-typo-explore-app">
+  <template strip-whitespace>
+    <style>
+      :host {
+        display: block;
+      }
+      
+      .display-4{
+        @apply --paper-font-display4;
+      }
+      .display-3{
+        @apply --paper-font-display3;
+      }
+      .display-2{
+        @apply --paper-font-display2;
+      }
+      .display-1{
+        @apply --paper-font-display1;
+      }
+
+      .headline {
+        @apply --paper-font-headline;
+      }
+  
+      .title {
+        @apply --paper-font-title;
+      }
+
+      .sub-headline{
+        @apply --paper-font-subhead;
+      }
+
+      .body-1 {
+        @apply --paper-font-body1;
+      }
+
+      .body-2 {
+        @apply --paper-font-body2;
+      }
+
+      .caption {
+        @apply --paper-font-caption
+      }
+
+      .menu {
+        @apply --paper-font-menu;
+      }
+
+      .button {
+        @apply --paper-font-button;
+      }
+
+      .code-1 {
+        @apply --paper-font-code1;
+      }
+
+      .code-2 {
+        @apply --paper-font-code2;
+      }
+
+    </style>
+
+    <dom-repeat items="[[list]]">
+      <template strip-whitespace>
+        <div>[[item]]</div>
+        <div class$="[[cssToString(item)]]">hello world! 你好！</div>
+      </template>
+    </dom-repeat>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class MaterialDesignTypoExploreApp extends Polymer.Element {
+      static get is() { return 'material-design-typo-explore-app'; }
+      static get properties() {
+        return {
+          list: {
+            type: Array,
+            value: ()=>{
+              return [
+                ".display-4",
+                ".display-3",
+                ".display-2",
+                ".display-1",
+                ".headline",
+                ".title",
+                ".sub-headline",
+                ".body-1",
+                ".body-2",
+                ".caption",
+                ".menu",
+                ".button",
+                ".code-1",
+                ".code-2"
+              ];
+            }
+          }
+        };
+      }
+
+      cssToString(s) {
+        return s.replace(".","");
+      }
+    }
+
+    window.customElements.define(MaterialDesignTypoExploreApp.is, MaterialDesignTypoExploreApp);
+  </script>
+</dom-module>
